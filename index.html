@@ -1,10 +1,165 @@
-.logo {
-  font-size: 48px;
-  font-weight: 900;
-  text-align: center;
-  margin: 20px 0 30px;
-  letter-spacing: 3px;
-  background: linear-gradient(90deg, #ffd900, #7cff00);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>F2N</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f0f0f;
+      color: white;
+    }
+
+    .app {
+      max-width: 500px;
+      min-height: 100vh;
+      margin: auto;
+      padding: 25px 18px 90px;
+    }
+
+    /* LOGO F2N */
+    .logo {
+      font-size: 48px;
+      font-weight: 900;
+      text-align: center;
+      margin: 20px 0 30px;
+      letter-spacing: 3px;
+      background: linear-gradient(90deg, #ffd900, #7cff00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* MESSAGE D'ACCUEIL */
+    .welcome {
+      font-size: 18px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 25px;
+      color: #d8d8d8;
+      font-style: italic;
+    }
+
+    /* CARTES */
+    .card {
+      background: #1c1c1c;
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 15px;
+      border: 1px solid #292929;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #bdbdbd;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    /* BOUTONS */
+    .button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      margin-top: 12px;
+      border: 0;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #ffd900, #7cff00);
+      color: #000;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .button:active {
+      transform: scale(0.98);
+    }
+
+    /* BARRE DU BAS */
+    .bottom {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #181818;
+      display: flex;
+      justify-content: space-around;
+      padding: 15px 5px;
+      border-top: 1px solid #333;
+    }
+
+    .bottom span {
+      font-size: 13px;
+      text-align: center;
+      color: #d8d8d8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="app">
+
+    <!-- LOGO -->
+    <div class="logo">F2N</div>
+
+    <!-- MESSAGE D'ACCUEIL -->
+    <div class="welcome">
+      Les meilleurs plugs de la région Nantaise !
+    </div>
+
+    <!-- PLUGS CERTIFIÉS -->
+    <div class="card">
+      <h2>Nos plugs certifiés ✅</h2>
+      <p>
+        Accède à nos plugs certifiés et découvre notre sélection.
+      </p>
+      <button class="button">
+        Découvrir les plugs
+      </button>
+    </div>
+
+    <!-- VOTES -->
+    <div class="card">
+      <h2>⭐ Votes</h2>
+      <p>
+        Vote pour ton plug préféré et fais entendre ta voix !
+      </p>
+      <button class="button">
+        Voter maintenant
+      </button>
+    </div>
+
+    <!-- LIENS F2N -->
+    <div class="card">
+      <h2>🔗 Liens F2N</h2>
+      <p>
+        Retrouve tous nos liens officiels au même endroit.
+      </p>
+      <button class="button">
+        Voir nos liens
+      </button>
+    </div>
+
+  </div>
+
+  <!-- MENU DU BAS -->
+  <div class="bottom">
+    <span>🏠<br>Accueil</span>
+    <span>🔥<br>Actus</span>
+    <span>⭐<br>Votes</span>
+    <span>👤<br>Profil</span>
+  </div>
+
+</body>
+</html>
