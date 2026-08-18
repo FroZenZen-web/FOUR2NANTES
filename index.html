@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>F2N</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f0f0f;
+      color: white;
+    }
+
+    .app {
+      max-width: 500px;
+      min-height: 100vh;
+      margin: auto;
+      padding: 25px 18px 90px;
+    }
+
+    .logo {
+      font-size: 42px;
+      font-weight: 900;
+      text-align: center;
+      margin: 20px 0 35px;
+    }
+
+    .welcome {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: #1c1c1c;
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 15px;
+    }
+
+    .card h2 {
+      margin-top: 0;
+    }
+
+    .button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      margin-top: 12px;
+      border: 0;
+      border-radius: 12px;
+      background: white;
+      color: black;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .bottom {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #181818;
+      display: flex;
+      justify-content: space-around;
+      padding: 15px 5px;
+      border-top: 1px solid #333;
+    }
+
+    .bottom span {
+      font-size: 13px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="app">
+
+    <div class="logo">F2N</div>
+
+    <div class="welcome">
+      Bienvenue sur F2N 👋
+    </div>
+
+    <div class="card">
+      <h2>🔥 Actualités</h2>
+      <p>Retrouve toutes les nouveautés F2N.</p>
+      <button class="button">Voir les actualités</button>
+    </div>
+
+    <div class="card">
+      <h2>⭐ Votes</h2>
+      <p>Vote pour ton favori.</p>
+      <button class="button">Participer aux votes</button>
+    </div>
+
+    <div class="card">
+      <h2>📢 Canal F2N</h2>
+      <p>Retrouve le canal principal F2N.</p>
+      <button class="button">Ouvrir le canal</button>
+    </div>
+
+  </div>
+
+  <div class="bottom">
+    <span>🏠<br>Accueil</span>
+    <span>🔥<br>Actus</span>
+    <span>⭐<br>Votes</span>
+    <span>👤<br>Profil</span>
+  </div>
+
+</body>
+</html>
