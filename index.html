@@ -1,290 +1,1265 @@
 <!DOCTYPE html>
+
 <html lang="fr">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#0d0d0d">
+
   <title>F2N</title>
+
   <style>
+
     * {
+
       box-sizing: border-box;
+
       margin: 0;
+
       padding: 0;
+
     }
+
     body {
+
       font-family: Arial, sans-serif;
+
       background:
-        radial-gradient(circle at top, #182000 0%, #0d0d0d 38%, #080808 100%);
+
+        radial-gradient(
+
+          circle at top,
+
+          #182000 0%,
+
+          #0d0d0d 38%,
+
+          #080808 100%
+
+        );
+
       color: white;
+
       min-height: 100vh;
+
     }
+
+    button {
+
+      font-family: inherit;
+
+    }
+
     .app {
+
       width: 100%;
+
       max-width: 520px;
+
       margin: auto;
-      padding: 25px 18px 110px;
+
+      padding: 25px 18px 125px;
+
     }
-    /* LOGO */
+
+    /* =========================
+
+       PAGES
+
+    ========================= */
+
+    .page {
+
+      display: block;
+
+      animation: fadeIn 0.2s ease;
+
+    }
+
+    .page.hidden {
+
+      display: none;
+
+    }
+
+    @keyframes fadeIn {
+
+      from {
+
+        opacity: 0;
+
+        transform: translateY(5px);
+
+      }
+
+      to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+      }
+
+    }
+
+    /* =========================
+
+       LOGO
+
+    ========================= */
+
     .logo-container {
+
       text-align: center;
+
       padding-top: 15px;
+
       margin-bottom: 10px;
+
     }
+
     .logo {
+
       font-size: 62px;
+
       font-weight: 1000;
+
       letter-spacing: 5px;
+
       line-height: 1;
+
       background: linear-gradient(
+
         135deg,
+
         #ffe600 0%,
+
         #dfff00 45%,
+
         #5cff00 100%
+
       );
+
       -webkit-background-clip: text;
+
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 0 18px rgba(190, 255, 0, 0.25));
+
+      filter:
+
+        drop-shadow(
+
+          0 0 18px
+
+          rgba(190, 255, 0, 0.25)
+
+        );
+
     }
+
     .logo-line {
+
       width: 55px;
+
       height: 4px;
+
       border-radius: 10px;
-      background: linear-gradient(90deg, #ffe000, #61ff00);
+
+      background:
+
+        linear-gradient(
+
+          90deg,
+
+          #ffe000,
+
+          #61ff00
+
+        );
+
       margin: 13px auto 0;
+
     }
-    /* MESSAGE */
+
+    /* =========================
+
+       MESSAGE
+
+    ========================= */
+
     .welcome {
+
       text-align: center;
+
       margin: 25px 0 30px;
+
     }
+
     .welcome-title {
+
       font-size: 22px;
+
       font-weight: 800;
+
       line-height: 1.3;
+
     }
+
     .welcome-subtitle {
+
       margin-top: 8px;
+
       color: #9d9d9d;
+
       font-size: 13px;
+
     }
-    /* CARDS */
-    .card {
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(
-        145deg,
-        rgba(35, 35, 35, 0.98),
-        rgba(18, 18, 18, 0.98)
-      );
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      border-radius: 22px;
-      padding: 22px;
-      margin-bottom: 16px;
-      box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.35);
-      transition: transform 0.2s ease;
-    }
-    .card:active {
-      transform: scale(0.98);
-    }
-    .card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(
-        90deg,
-        #ffe000,
-        #70ff00
-      );
-    }
-    .icon {
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 15px;
-      background: rgba(190, 255, 0, 0.08);
-      border: 1px solid rgba(190, 255, 0, 0.12);
-      font-size: 24px;
-      margin-bottom: 15px;
-    }
-    .card h2 {
-      font-size: 20px;
-      margin-bottom: 8px;
-    }
-    .card p {
-      color: #a7a7a7;
-      font-size: 14px;
-      line-height: 1.5;
-      margin-bottom: 17px;
-    }
-    /* BOUTONS */
-    .button {
-      width: 100%;
-      border: none;
-      padding: 14px 16px;
-      border-radius: 13px;
-      background: linear-gradient(
-        90deg,
-        #ffe000,
-        #79ff00
-      );
-      color: #080808;
-      font-size: 14px;
-      font-weight: 800;
-      box-shadow:
-        0 5px 20px rgba(174, 255, 0, 0.12);
-      cursor: pointer;
-    }
-    .button:active {
-      transform: scale(0.97);
-    }
-    /* TITRE DES SECTIONS */
+
+    /* =========================
+
+       SECTION
+
+    ========================= */
+
     .section-title {
+
       font-size: 12px;
+
       text-transform: uppercase;
+
       letter-spacing: 2px;
+
       color: #777;
+
       margin: 25px 5px 12px;
+
     }
-    /* BARRE DU BAS */
-    .bottom {
-      position: fixed;
-      left: 50%;
-      bottom: 12px;
-      transform: translateX(-50%);
-      width: calc(100% - 24px);
-      max-width: 500px;
-      background: rgba(25, 25, 25, 0.92);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
-      display: flex;
-      justify-content: space-around;
-      padding: 10px 5px;
+
+    /* =========================
+
+       CARDS
+
+    ========================= */
+
+    .card {
+
+      position: relative;
+
+      overflow: hidden;
+
+      background:
+
+        linear-gradient(
+
+          145deg,
+
+          rgba(35, 35, 35, 0.98),
+
+          rgba(18, 18, 18, 0.98)
+
+        );
+
+      border: 1px solid rgba(255, 255, 255, 0.07);
+
+      border-radius: 22px;
+
+      padding: 22px;
+
+      margin-bottom: 16px;
+
       box-shadow:
-        0 10px 35px rgba(0, 0, 0, 0.5);
+
+        0 10px 30px
+
+        rgba(0, 0, 0, 0.35);
+
+      transition:
+
+        transform 0.2s ease;
+
     }
-    .bottom-item {
-      width: 25%;
-      text-align: center;
-      color: #777;
-      font-size: 11px;
-      padding: 7px 0;
-      border-radius: 13px;
-      transition: 0.2s;
+
+    .card:active {
+
+      transform: scale(0.98);
+
     }
-    .bottom-item .nav-icon {
+
+    .card::before {
+
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+
+      left: 0;
+
+      width: 100%;
+
+      height: 3px;
+
+      background:
+
+        linear-gradient(
+
+          90deg,
+
+          #ffe000,
+
+          #70ff00
+
+        );
+
+    }
+
+    .icon {
+
+      width: 48px;
+
+      height: 48px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 15px;
+
+      background:
+
+        rgba(190, 255, 0, 0.08);
+
+      border:
+
+        1px solid
+
+        rgba(190, 255, 0, 0.12);
+
+      font-size: 24px;
+
+      margin-bottom: 15px;
+
+    }
+
+    .card h2 {
+
       font-size: 20px;
-      margin-bottom: 3px;
+
+      margin-bottom: 8px;
+
     }
-    .bottom-item.active {
-      color: #dfff00;
-      background: rgba(210, 255, 0, 0.08);
+
+    .card p {
+
+      color: #a7a7a7;
+
+      font-size: 14px;
+
+      line-height: 1.5;
+
+      margin-bottom: 17px;
+
     }
-    /* PETITE NOTE */
+
+    /* =========================
+
+       BOUTONS
+
+    ========================= */
+
+    .button {
+
+      width: 100%;
+
+      border: none;
+
+      padding: 14px 16px;
+
+      border-radius: 13px;
+
+      background:
+
+        linear-gradient(
+
+          90deg,
+
+          #ffe000,
+
+          #79ff00
+
+        );
+
+      color: #080808;
+
+      font-size: 14px;
+
+      font-weight: 800;
+
+      box-shadow:
+
+        0 5px 20px
+
+        rgba(174, 255, 0, 0.12);
+
+      cursor: pointer;
+
+      transition:
+
+        transform 0.15s ease,
+
+        opacity 0.15s ease;
+
+    }
+
+    .button:active {
+
+      transform: scale(0.97);
+
+      opacity: 0.85;
+
+    }
+
+    /* =========================
+
+       FOOTER
+
+    ========================= */
+
     .footer-text {
+
       text-align: center;
+
       color: #555;
+
       font-size: 11px;
+
       margin-top: 25px;
+
     }
+
+    /* =========================
+
+       BARRE DU BAS
+
+    ========================= */
+
+    .bottom {
+
+      position: fixed;
+
+      left: 50%;
+
+      bottom: 12px;
+
+      transform: translateX(-50%);
+
+      width: calc(100% - 24px);
+
+      max-width: 500px;
+
+      background:
+
+        rgba(25, 25, 25, 0.92);
+
+      backdrop-filter: blur(15px);
+
+      -webkit-backdrop-filter: blur(15px);
+
+      border:
+
+        1px solid
+
+        rgba(255, 255, 255, 0.08);
+
+      border-radius: 20px;
+
+      display: flex;
+
+      justify-content: space-around;
+
+      padding: 10px 5px;
+
+      box-shadow:
+
+        0 10px 35px
+
+        rgba(0, 0, 0, 0.5);
+
+      z-index: 1000;
+
+    }
+
+    .bottom-item {
+
+      width: 25%;
+
+      text-align: center;
+
+      color: #777;
+
+      font-size: 11px;
+
+      padding: 7px 0;
+
+      border-radius: 13px;
+
+      transition: 0.2s;
+
+      cursor: pointer;
+
+      user-select: none;
+
+      -webkit-tap-highlight-color: transparent;
+
+    }
+
+    .bottom-item .nav-icon {
+
+      font-size: 20px;
+
+      margin-bottom: 3px;
+
+    }
+
+    .bottom-item.active {
+
+      color: #dfff00;
+
+      background:
+
+        rgba(210, 255, 0, 0.08);
+
+    }
+
+    .bottom-item:active {
+
+      transform: scale(0.92);
+
+    }
+
+    /* =========================
+
+       PETITS ECRANS
+
+    ========================= */
+
+    @media (max-width: 380px) {
+
+      .logo {
+
+        font-size: 54px;
+
+      }
+
+      .welcome-title {
+
+        font-size: 20px;
+
+      }
+
+      .card {
+
+        padding: 19px;
+
+      }
+
+    }
+
   </style>
+
 </head>
+
 <body>
+
   <div class="app">
-    <!-- LOGO -->
-    <div class="logo-container">
-      <div class="logo">F2N</div>
-      <div class="logo-line"></div>
-    </div>
-    <!-- ACCUEIL -->
-    <div class="welcome">
-      <div class="welcome-title">
-        Les meilleurs plugs de la région Nantaise !
+
+    <!-- ==================================================
+
+         ACCUEIL
+
+    ================================================== -->
+
+    <div id="page-accueil" class="page">
+
+      <div class="logo-container">
+
+        <div class="logo">F2N</div>
+
+        <div class="logo-line"></div>
+
       </div>
-      <div class="welcome-subtitle">
-        Découvre l'univers F2N
+
+      <div class="welcome">
+
+        <div class="welcome-title">
+
+          Les meilleurs plugs de la région Nantaise !
+
+        </div>
+
+        <div class="welcome-subtitle">
+
+          Découvre l'univers F2N
+
+        </div>
+
       </div>
-    </div>
-    <!-- SECTION -->
-    <div class="section-title">
-      Découvrir
-    </div>
-    <!-- PLUGS -->
-    <div class="card">
-      <div class="icon">
-        ✅
+
+      <div class="section-title">
+
+        Découvrir
+
       </div>
-      <h2>
+
+      <!-- PLUGS -->
+
+      <div class="card">
+
+        <div class="icon">
+
+          ✅
+
+        </div>
+
+        <h2>
+
+          Nos plugs certifiés
+
+        </h2>
+
+        <p>
+
+          Accède à notre sélection de plugs certifiés
+
+          et découvre les profils disponibles sur F2N.
+
+        </p>
+
+        <button
+
+          class="button"
+
+          onclick="ouvrirPlugs()"
+
+        >
+
+          Découvrir les plugs →
+
+        </button>
+
+      </div>
+
+      <!-- VOTES -->
+
+      <div class="card">
+
+        <div class="icon">
+
+          ⭐
+
+        </div>
+
+        <h2>
+
+          Votes
+
+        </h2>
+
+        <p>
+
+          Vote pour ton plug préféré et fais entendre
+
+          ta voix au sein de la communauté F2N.
+
+        </p>
+
+        <button
+
+          class="button"
+
+          onclick="ouvrirVotes()"
+
+        >
+
+          Voter maintenant →
+
+        </button>
+
+      </div>
+
+      <!-- LIENS -->
+
+      <div class="card">
+
+        <div class="icon">
+
+          🔗
+
+        </div>
+
+        <h2>
+
+          Liens F2N
+
+        </h2>
+
+        <p>
+
+          Retrouve tous nos liens officiels
+
+          F2N réunis au même endroit.
+
+        </p>
+
+        <button
+
+          class="button"
+
+          onclick="ouvrirLiens()"
+
+        >
+
+          Voir nos liens →
+
+        </button>
+
+      </div>
+
+      <div class="footer-text">
+
+        F2N • Nantes
+
+      </div>
+
+    </div>
+
+    <!-- ==================================================
+
+         PAGE PLUGS
+
+    ================================================== -->
+
+    <div
+
+      id="page-plugs"
+
+      class="page hidden"
+
+    >
+
+      <div class="logo-container">
+
+        <div class="logo">
+
+          PLUGS
+
+        </div>
+
+        <div class="logo-line"></div>
+
+      </div>
+
+      <div class="section-title">
+
         Nos plugs certifiés
-      </h2>
-      <p>
-        Accède à notre sélection de plugs certifiés
-        et découvre les profils disponibles sur F2N.
-      </p>
-      <button class="button">
-        Découvrir les plugs →
-      </button>
-    </div>
-    <!-- VOTES -->
-    <div class="card">
-      <div class="icon">
-        ⭐
+
       </div>
-      <h2>
+
+      <div class="card">
+
+        <div class="icon">
+
+          ✅
+
+        </div>
+
+        <h2>
+
+          Plugs certifiés
+
+        </h2>
+
+        <p>
+
+          Retrouve ici les profils disponibles
+
+          et certifiés sur F2N.
+
+        </p>
+
+        <button
+
+          class="button"
+
+          onclick="alert('Les profils seront ajoutés ici.')"
+
+        >
+
+          Voir les profils →
+
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- ==================================================
+
+         PAGE VOTES
+
+    ================================================== -->
+
+    <div
+
+      id="page-votes"
+
+      class="page hidden"
+
+    >
+
+      <div class="logo-container">
+
+        <div class="logo">
+
+          VOTES
+
+        </div>
+
+        <div class="logo-line"></div>
+
+      </div>
+
+      <div class="section-title">
+
         Votes
-      </h2>
-      <p>
-        Vote pour ton plug préféré et fais entendre
-        ta voix au sein de la communauté F2N.
-      </p>
-      <button class="button">
-        Voter maintenant →
-      </button>
-    </div>
-    <!-- LIENS -->
-    <div class="card">
-      <div class="icon">
-        🔗
+
       </div>
-      <h2>
+
+      <div class="card">
+
+        <div class="icon">
+
+          ⭐
+
+        </div>
+
+        <h2>
+
+          Vote de la communauté
+
+        </h2>
+
+        <p>
+
+          Choisis ton plug préféré et participe
+
+          au classement de la communauté F2N.
+
+        </p>
+
+        <button
+
+          class="button"
+
+          onclick="lancerVote()"
+
+        >
+
+          Voir les votes →
+
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- ==================================================
+
+         PAGE LIENS
+
+    ================================================== -->
+
+    <div
+
+      id="page-liens"
+
+      class="page hidden"
+
+    >
+
+      <div class="logo-container">
+
+        <div class="logo">
+
+          LIENS
+
+        </div>
+
+        <div class="logo-line"></div>
+
+      </div>
+
+      <div class="section-title">
+
         Liens F2N
-      </h2>
-      <p>
-        Retrouve tous nos liens officiels
-        F2N réunis au même endroit.
-      </p>
-      <button class="button">
-        Voir nos liens →
-      </button>
+
+      </div>
+
+      <div class="card">
+
+        <div class="icon">
+
+          🔗
+
+        </div>
+
+        <h2>
+
+          Tous nos liens
+
+        </h2>
+
+        <p>
+
+          Retrouve ici tous les liens officiels
+
+          de F2N.
+
+        </p>
+
+        <button
+
+          class="button"
+
+          onclick="alert('Les liens seront ajoutés ici.')"
+
+        >
+
+          Ouvrir les liens →
+
+        </button>
+
+      </div>
+
     </div>
-    <div class="footer-text">
-      F2N • Nantes
+
+    <!-- ==================================================
+
+         PAGE PROFIL
+
+    ================================================== -->
+
+    <div
+
+      id="page-profil"
+
+      class="page hidden"
+
+    >
+
+      <div class="logo-container">
+
+        <div class="logo">
+
+          PROFIL
+
+        </div>
+
+        <div class="logo-line"></div>
+
+      </div>
+
+      <div class="section-title">
+
+        Mon profil
+
+      </div>
+
+      <div class="card">
+
+        <div class="icon">
+
+          👤
+
+        </div>
+
+        <h2>
+
+          Profil F2N
+
+        </h2>
+
+        <p>
+
+          Ton profil Telegram pourra être affiché
+
+          ici lorsque la Mini App sera connectée
+
+          à Telegram.
+
+        </p>
+
+        <button
+
+          class="button"
+
+          onclick="monProfil()"
+
+        >
+
+          Mon profil →
+
+        </button>
+
+      </div>
+
     </div>
+
   </div>
-  <!-- NAVIGATION -->
+
+  <!-- ==================================================
+
+       NAVIGATION BAS
+
+       ACTUS SUPPRIMÉ
+
+  ================================================== -->
+
   <div class="bottom">
-    <div class="bottom-item active">
-      <div class="nav-icon">⌂</div>
+
+    <!-- ACCUEIL -->
+
+    <div
+
+      class="bottom-item active"
+
+      onclick="accueil()"
+
+    >
+
+      <div class="nav-icon">
+
+        ⌂
+
+      </div>
+
       Accueil
+
     </div>
-    <div class="bottom-item">
-      <div class="nav-icon">🔥</div>
-      Actus
+
+    <!-- PLUGS -->
+
+    <div
+
+      class="bottom-item"
+
+      onclick="ouvrirPlugs()"
+
+    >
+
+      <div class="nav-icon">
+
+        ✅
+
+      </div>
+
+      Plugs
+
     </div>
-    <div class="bottom-item">
-      <div class="nav-icon">⭐</div>
+
+    <!-- VOTES -->
+
+    <div
+
+      class="bottom-item"
+
+      onclick="ouvrirVotes()"
+
+    >
+
+      <div class="nav-icon">
+
+        ⭐
+
+      </div>
+
       Votes
+
     </div>
-    <div class="bottom-item">
-      <div class="nav-icon">👤</div>
+
+    <!-- PROFIL -->
+
+    <div
+
+      class="bottom-item"
+
+      onclick="profil()"
+
+    >
+
+      <div class="nav-icon">
+
+        👤
+
+      </div>
+
       Profil
+
     </div>
+
   </div>
+
+  <!-- ==================================================
+
+       JAVASCRIPT
+
+  ================================================== -->
+
+  <script>
+
+    function cacherToutesLesPages() {
+
+      document
+
+        .querySelectorAll(".page")
+
+        .forEach(function(page) {
+
+          page.classList.add("hidden");
+
+        });
+
+    }
+
+    function retirerActive() {
+
+      document
+
+        .querySelectorAll(".bottom-item")
+
+        .forEach(function(item) {
+
+          item.classList.remove("active");
+
+        });
+
+    }
+
+    function afficherPage(id, bouton) {
+
+      cacherToutesLesPages();
+
+      retirerActive();
+
+      document
+
+        .getElementById(id)
+
+        .classList.remove("hidden");
+
+      if (bouton) {
+
+        bouton.classList.add("active");
+
+      }
+
+      window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+      });
+
+    }
+
+    function accueil() {
+
+      afficherPage(
+
+        "page-accueil",
+
+        document.querySelectorAll(".bottom-item")[0]
+
+      );
+
+    }
+
+    function ouvrirPlugs() {
+
+      afficherPage(
+
+        "page-plugs",
+
+        document.querySelectorAll(".bottom-item")[1]
+
+      );
+
+    }
+
+    function ouvrirVotes() {
+
+      afficherPage(
+
+        "page-votes",
+
+        document.querySelectorAll(".bottom-item")[2]
+
+      );
+
+    }
+
+    function ouvrirLiens() {
+
+      afficherPage(
+
+        "page-liens",
+
+        null
+
+      );
+
+    }
+
+    function profil() {
+
+      afficherPage(
+
+        "page-profil",
+
+        document.querySelectorAll(".bottom-item")[3]
+
+      );
+
+    }
+
+    function lancerVote() {
+
+      alert(
+
+        "Le système de vote sera connecté ici."
+
+      );
+
+    }
+
+    function monProfil() {
+
+      alert(
+
+        "Le profil Telegram sera connecté ici."
+
+      );
+
+    }
+
+  </script>
+
 </body>
+
 </html>
